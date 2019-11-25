@@ -65,20 +65,20 @@ class App extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="cnt">
                 <Menu/>
-                <div className="cnt">
+                <div>
                     <Info/>
                     <div className="box">
                         <input className="inpt-url" id="inpt-url" placeholder="Shorten a link here..." type="url" value={this.state.value} onChange={this.handleChange}/>
-                        <a className="btn short" onClick={this.shortit}>Shorten It!</a>
+                        <a href="#" className="btn short" onClick={this.shortit}>Shorten It!</a>
                     </div>
                     <div className="result">
                         {!this.state.isLoading && this.state.shorted !== undefined ? (
                             <div className="resultbox">
                                 <div className="defaulturl"><div>{this.state.start}</div></div>
                                 <div className="shortedurl"><div>{this.state.shorted}</div></div>
-                                <a className="btn copy" onClick={this.copy}>{this.state.btncopy}</a>
+                                <a href="#" className="btn copy" onClick={this.copy}>{this.state.btncopy}</a>
                             </div>
                         ): (
                             null
