@@ -17,6 +17,13 @@ body{
   justify-content: flex-start;
   margin-bottom: 50px;
 }
+.menu div{
+  margin-left: auto;
+  padding: 20px;
+}
+.menu div a{
+  font-size: 22px;
+}
 .title{
   margin: 0;
   margin-left: 10px;
@@ -28,6 +35,11 @@ body{
 .info-up{
   margin: 10px;
   text-align: center;
+}
+a,
+a:visited{
+  text-decoration: none;
+  color: hsl(255, 11%, 22%);
 }
 .box{
   width: 90%;
@@ -46,6 +58,24 @@ body{
   justify-content: center;
   align-items: center;
   margin-bottom: 50px;
+  margin-top: 40px;
+}
+@media only screen and (min-width:850px){
+  .box{
+    flex-direction: row;
+    margin-top: 50px;
+  }
+  input[type=url]{
+    width: 60% !important;
+  }
+  .short{
+    width: 20% !important;
+  }
+}
+@media only screen and (min-width:1200px){
+  .box{
+    width: 70%;
+  }
 }
 .btn{
   display: inline-block;
@@ -133,7 +163,16 @@ input[type=url]{
   border-bottom: 1px solid #f0f1f6;
   width: 100%;
   text-align: left;
+}
+@media only screen and (max-width:1000px){
+  .defaulturl{
+    overflow: hidden;
+  }
+}
+.defaulturl div{
   overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .shortedurl{
   width: 100%;
@@ -144,6 +183,29 @@ input[type=url]{
 .shortedurl div{
   margin: 10px;
   margin-left: 15px;
+}
+@media only screen and (min-width:850px){
+  .resultbox{
+    flex-direction: row;
+    justify-content: flex-end;
+    height: 80px;
+    padding: 0;
+  }
+  .defaulturl{
+    border: none;
+    margin-left: auto;
+  }
+  .shortedurl{
+    text-align: right;
+  }
+  .copy{
+    width: 30% !important;
+  }
+}
+@media only screen and (min-width:1200px){
+  .resultbox{
+    width: 70%;
+  }
 }
 .preloader{
   transition: 0.3s;
@@ -221,4 +283,60 @@ input[type=url]{
     -webkit-transform: scale3D(0, 0, 1);
     transform: scale3D(0, 0, 1);
   } 
+}
+.center{
+  text-align: center;
+}
+.login-box{
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.logout{
+  background-image: url("img/sign-out-alt.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  margin: 10px;
+}
+.code{
+  line-height: 1.15;
+  color: #c7ccd1;
+  border: 3px solid #8991e3;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-family: inherit;
+  box-shadow: 0 9px 30px 0 rgba(24,25,28,.1);
+  background: #202225;
+  border-radius: 3px;
+  box-sizing: border-box;
+  padding: 8px;
+  z-index: 3;
+  width: 320px;
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-size: 14px;
+}
+@media only screen and (min-width:600px){
+  .code{
+      font-size: 20px;
+      width: 600px;
+      word-break: break-all;
+  }
+}
+.green{
+  color: #4caf50;
+}
+.json-prev{
+  white-space: pre-line;
+  text-align: left;
 }
