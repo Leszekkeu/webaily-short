@@ -164,7 +164,8 @@ class Api extends Component {
     state = {
         isLogged: false,
         isLoading: false,
-        uid: ''
+        uid: '',
+        error: ''
     }
     auth = (e) => {
         const thiss = this;
@@ -174,19 +175,27 @@ class Api extends Component {
                 thiss.setState({isLogged: true});
                 if (user != null) {
                     const uid = window.btoa(user.email)
-                    thiss.setState({uid: uid});
+                    thiss.setState({uid: uid, error: ''});
                 }
             } else {
                 thiss.setState({isLogged: false, uid: ''});
             }
             thiss.setState({isLoading: false});
-        });
+        })
     }
     login = (e) => {
+        this.setState({error: ""});
         const thiss = this;
-        const provider = new firebase.auth.GoogleAuthProvider();
+        var provider = new firebase.auth.GoogleAuthProvider();
+        if(e === "github"){
+            provider = new firebase.auth.GithubAuthProvider();
+        }
         firebase.auth().signInWithPopup(provider).then(function(result) {
             thiss.auth();
+        }).catch(error => {
+            if(error !== "auth/cancelled-popup-request"){
+                thiss.setState({error: error.message});
+            }
         })
     }
     signOut = (e) => {
@@ -208,14 +217,16 @@ class Api extends Component {
                             <h2>Login to get API</h2>
                             <div className="login-box">
                                 <a className="login-google btn" onClick={this.login}>Login via Google</a>
+                                <a className="login-google btn" onClick={() => this.login("github")}>Login via GitHub</a>
                             </div>
+                            <div className="err">{this.state.error}</div>
                         </div>
                     ) : (null)}
                     {!this.state.isLoading && this.state.isLogged && this.state.uid ?(
                         <div>
                             <div className="logout" onClick={this.signOut}></div>
                             <div className="code">
-                                <i>POST //</i> https://webaily.web.app/shorturl?req=post
+                                <i>POST //</i> https://webaily.web.app/shorturl
                                 <pre className="json-prev">
                                     {"{"}
                                     <br></br>

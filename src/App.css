@@ -88,6 +88,10 @@ a:visited{
   border-radius: 5px;
   font-weight: bold;
   margin: 8px;
+  transition: 0.3s;
+}
+.btn:hover{
+  background-color: hsl(180, 60%, 45%);
 }
 input[type=url]{
   width: 85%;
@@ -339,4 +343,12 @@ input[type=url]{
 .json-prev{
   white-space: pre-line;
   text-align: left;
+}
+.err{
+  color: hsl(0, 87%, 67%);
+  font-size: 14px;
+  width: 400px;
+  margin: 30px;
+  margin-left: auto;
+  margin-right: auto;
 }
