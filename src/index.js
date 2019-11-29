@@ -28,7 +28,7 @@ function Info() {
     return(
         <div className="info-up">
             <h2>More than just shorten links</h2>
-            <p>Create your own short link using our service.</p>
+            <p>Shorten and it will be available as <i>shortly.page.link/</i> and <i>shorter.web.app/</i></p>
         </div>
     )
 }
@@ -72,7 +72,7 @@ class App extends Component {
             inpt.classList.remove("error");
             this.setState({disabledInpt:true});
             this.setState({isLoading: true });
-            const url = "https://webaily.web.app/shorturl";
+            const url = "https://webaily.web.app/shorturl?req=post";
             const params = {
                 url: this.state.value.toLowerCase(),
                 type: "short",
