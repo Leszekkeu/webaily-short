@@ -19,6 +19,7 @@ function Menu() {
         <div className="menu">
             <h1 className="title"><a href="/">WebAily Short</a></h1>
             <div>
+                <a href="/apps">APPS</a>
                 <a href="/api">API</a>
             </div>
         </div>
@@ -215,7 +216,7 @@ class Api extends Component {
                     {!this.state.isLogged && !this.state.isLoading ? (
                         <div>
                             <h2>Login to get API</h2>
-                            <div className="login-box">
+                            <div className="center-box">
                                 <a className="login-google btn" onClick={this.login}>Login via Google</a>
                                 <a className="login-google btn" onClick={() => this.login("github")}>Login via GitHub</a>
                             </div>
@@ -247,12 +248,28 @@ class Api extends Component {
         );
     }
 }
+class Apps extends Component {
+    render() { 
+        return (
+            <div className="center">
+                <Menu/>
+                <h2>Download</h2>
+                <div className="center-box">
+                    <a className="btn dl" href="https://www.icloud.com/shortcuts/85bb275fbce74a70bf2c1a681b50f8a9" target="_blank">Siri Shortcut</a>
+                </div>  
+            </div>
+
+        )
+    }
+}
+ 
 class RouterApp extends Component{
     render(){
         return(
             <Router>
                 <Route exact path="/" component={App}/>
                 <Route path="/API" component={Api}/>
+                <Route path="/APPS" component={Apps}/>
             </Router>
         )
     }
