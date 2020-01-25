@@ -30,7 +30,7 @@ class App extends Component {
             this.setState({isLoading: true });
             const url = "https://webaily.web.app/shorturl?req=post";
             const params = {
-                url: this.state.value.toLowerCase(),
+                url: this.state.value,
                 type: "short",
                 token: "bGVzemVra0BsZXN6ZWtrLmV1"
             };
