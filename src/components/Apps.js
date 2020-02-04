@@ -8,7 +8,8 @@ class Apps extends Component {
                 <h2>Download</h2>
                 <div className="center-box">
                     <a className="btn dl" href="https://www.icloud.com/shortcuts/85bb275fbce74a70bf2c1a681b50f8a9" target="_blank">Siri Shortcut</a>
-                </div>  
+                    <a className="btn dl" href="https://marketplace.visualstudio.com/items?itemName=LeszekKorzan.webaily" target="_blank">Visual Studio Code Extension</a>
+                </div>
             </div>
 
         )
